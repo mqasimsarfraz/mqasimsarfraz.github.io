@@ -1,0 +1,57 @@
+% LaTeX resume using res.cls
+\documentclass[margin]{res}
+%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
+%\usepackage{newcent}   % uses new century schoolbook postscript font
+\setlength{\textwidth}{5.1in} % set width of text portion
+\usepackage{wasysym}
+\usepackage{amssymb}
+
+\begin{document}
+
+% Center the name over the entire width of resume:
+ \moveleft.5\hoffset\centerline{\large\bf Syed Muhammad Qasim Sarfraz}
+% Draw a horizontal line the whole width of resume:
+ \moveleft\hoffset\vbox{\hrule width\resumewidth height 1pt}\smallskip
+% address begins here
+% Again, the address lines must be centered over entire width of resume:
+ \moveleft.5\hoffset\centerline{syed.qasim.sarfraz@gmail.com}
+
+\moveleft.5\hoffset\centerline{+4915204902253}
+
+\begin{resume}
+
+\section{Career Summary} Linux Engineer with a passionate and a self driven personality with experience in system engineering of production cloud deployments and product life cycle management.
+
+\section{Computer \\ Skills} {\sl Languages \& Software:} Puppet, Ansible, Python, Bash, Redis, Nginx, Maven, Git, Jenkins, LXC, Docker, KVM, Kubernetes, Mesos, DC/OS, OpenStack and Clouds.\\
+                {\sl Operating Systems:} Linux (Ubuntu, RHEL and CentOS)
+
+\section{Work \\ Experience}
+\textbf{DevOps Engineer} at INTECH Process Automation, Lahore \hfill     Mar 2017- Present \\
+- Responsible for deployment, maintenance, reliability, scalability and system engineering of advanced data and software solutions for IoT platform.   \\ \\
+{\bf Design Engineer III} at Xgrid, Islamabad\hfill     Oct 2014 - Feb 2017 \\
+- Senior member of PLUMgrid Cloud Solutions team with responsibilities including design and development of automated deployments, upgrades and maintenance of PLUMgrid Products. The key projects completed here include:
+    \begin{itemize}  \itemsep -2pt %reduce space between items
+        \item \textbf{Design and development} for PLUMgrid Docker based installation. \textit{(Puppet, Ansible, Bash and Docker)}
+        \item \textbf{Lead Developer} for PLUMgrid and Red Hat OpenStack solution for automated installations and upgrades. \textit{(Puppet, Ansible, Bash and LXC)}
+        \item \textbf{Developed pipelines} around OpenStack and PLUMgrid solution for better life cycle management. \textit{(Jenkins, CI/CD, Puppet, Bash and LXC)}
+        \item \textbf{Developer} for PLUMgrid Life Cycle Manager for robust automated production grade deployments. \textit{(Puppet and Bash)}
+    \end{itemize}
+
+\textbf{Site Experince} at PLUMgrid HQ, California \hfill     Jan-Mar 2016 \\
+- 8 weeks training in PLUMgrid HQ, Santa Clara.   \\ \\
+\textbf{Software Engineer} at Xavor Corporation \hfill     June - August 2014 \\
+- I worked as a SCM engineer for Broadcom making sure that each release is performed according to standards.
+
+\section{Education} {\sl Bachelor of Science,} Electrical Engineering \hfill 2010-2014 \\
+                      % \sl will be bold italic in New Century Schoolbook (or
+	              % any postscript font) and just slanted in
+		      %	Computer Modern (default) font
+                University of Engineering and Technology, Lahore \\
+	             \textit{Concentration} : \textbf{Computers}
+
+\section{Achievements \\ \& Participation} PLUMgrid representative in \textbf{OpenStack Summit Barcelona} 2016. \\ \\
+Lead for \textbf{Red Hat OpenStack and PLUMgrid certification} for various RH-OPS releases. \\ \\
+\textbf{PLUMgrid outstanding achievement} award. \\ \\
+\textbf{OpenStack, Red Hat and IOVisor} community member.
+\end{resume}
+\end{document}
