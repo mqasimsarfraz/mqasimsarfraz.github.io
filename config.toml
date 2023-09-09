@@ -1,5 +1,5 @@
 baseURL = "https://mqasimsarfraz.github.io"
-title = "Qasim Sarfraz"
+title = "mqasimsarfraz"
 theme = "hugo-coder"
 languageCode = "en"
 defaultContentLanguage = "en"
@@ -16,7 +16,7 @@ publishDir = "docs"
 author = "Qasim Sarfraz"
 description = "Qasim Sarfraz's portfolio website"
 keywords = "blog,developer,personal"
-info = ["Full Stack DevOps"]
+info = ["Software Engineer"]
 avatarURL = "images/avatar.jpg"
 #gravatar = "john.doe@example.com"
 dateFormat = "January 2, 2006"
@@ -98,7 +98,7 @@ author = "authors"
 name = "Github"
 icon = "fa fa-2x fa-github"
 weight = 1
-url = "https://github.com/MQasimSarfraz"
+url = "https://github.com/mqasimsarfraz"
 
 [[params.social]]
 name = "Stackoverflow"
@@ -116,7 +116,7 @@ url = "https://twitter.com/qasim_sarfraz"
 name = "LinkedIn"
 icon = "fa fa-2x fa-linkedin"
 weight = 4
-url = "https://www.linkedin.com/in/qasim-sarfraz-31611541"
+url = "https://www.linkedin.com/in/mqasimsarfraz"
 
 [[params.social]]
 name = "Medium"
@@ -137,14 +137,14 @@ languageName = ":uk:"
 [[languages.en.menu.main]]
 name = "About"
 weight = 1
-url = "#"
+url = "https://github.com/mqasimsarfraz"
 
 [[languages.en.menu.main]]
 name = "Blog"
 weight = 2
-url = "#"
+url = "https://qasim-sarfraz.medium.com"
 
 [[languages.en.menu.main]]
-name = "Podcast"
+name = "Videos"
 weight = 3
-url = "#"
+url = "https://www.youtube.com/@mqasimsarfraz"
