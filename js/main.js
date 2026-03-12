@@ -14,7 +14,7 @@
         const command = 'cat about.md';
         const outputText = `{
   "name": "Qasim Sarfraz",
-  "role": "Software Engineer @ Microsoft",
+  "role": "Senior Software Engineer @ Microsoft",
   "focus": ["eBPF", "Containers", "Kubernetes", "OSS"],
   "projects": ["inspektor-gadget", "aks-mcp", "coredns"],
   "location": "Hamburg, Germany"
