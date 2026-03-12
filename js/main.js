@@ -40,6 +40,33 @@
         setTimeout(typeCommand, 800);
     }
 
+    // --- Theme Toggle ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        if (themeIcon) {
+            themeIcon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+    }
+
+    // Load saved preference or respect system preference
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        setTheme('light');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            var current = document.documentElement.getAttribute('data-theme');
+            setTheme(current === 'light' ? 'dark' : 'light');
+        });
+    }
+
     // --- Navigation Scroll Effect ---
     const nav = document.getElementById('nav');
     if (nav) {
