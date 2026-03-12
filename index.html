@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qasim Sarfraz — Software Engineer</title>
+    <meta name="description" content="Software Engineer at Microsoft. OSS contributor focused on Containers, Kubernetes, eBPF, and cloud native technologies.">
+    <meta name="keywords" content="Qasim Sarfraz, Software Engineer, Kubernetes, Containers, eBPF, OSS, Microsoft, Inspektor Gadget">
+    <meta name="author" content="Qasim Sarfraz">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Qasim Sarfraz — Software Engineer">
+    <meta property="og:description" content="Software Engineer at Microsoft. OSS | eBPF | Containers | Kubernetes">
+    <meta property="og:image" content="https://mqasimsarfraz.com/images/avatar.jpg">
+    <meta property="og:url" content="https://mqasimsarfraz.com">
+    <meta property="og:type" content="website">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Scanline overlay -->
+    <div class="scanline-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="prompt">~$</span> <span class="nav-name">qasim</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link">about</a></li>
+                <li><a href="#projects" class="nav-link">projects</a></li>
+                <li><a href="#talks" class="nav-link">talks</a></li>
+                <li><a href="#blog" class="nav-link">blog</a></li>
+                <li><a href="#experience" class="nav-link">experience</a></li>
+                <li><a href="playground.html" class="nav-link nav-link--highlight">playground</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-terminal">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="terminal-btn terminal-btn--red"></span>
+                    <span class="terminal-btn terminal-btn--yellow"></span>
+                    <span class="terminal-btn terminal-btn--green"></span>
+                </div>
+                <span class="terminal-title">qasim@portfolio:~</span>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-line">
+                    <span class="prompt">$</span>
+                    <span class="typed-text" id="hero-typed"></span>
+                    <span class="cursor" id="hero-cursor">▋</span>
+                </div>
+                <div class="hero-output" id="hero-output"></div>
+            </div>
+        </div>
+        <div class="hero-info">
+            <img src="images/avatar.jpg" alt="Qasim Sarfraz" class="hero-avatar">
+            <h1 class="hero-name">Qasim Sarfraz</h1>
+            <p class="hero-title">Software Engineer @ <span class="highlight">Microsoft</span></p>
+            <p class="hero-tagline">OSS · eBPF · Containers · Kubernetes</p>
+            <div class="hero-social">
+                <a href="https://github.com/mqasimsarfraz" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mqasimsarfraz" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/qasim_sarfraz" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://stackoverflow.com/users/7274380/qasim-sarfraz" target="_blank" rel="noopener" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+                <a href="https://qasim-sarfraz.medium.com" target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
+                <a href="resume/resume.pdf" target="_blank" aria-label="Resume"><i class="fas fa-file-alt"></i></a>
+            </div>
+        </div>
+        <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title"><span class="prompt">#</span> about</h2>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>
+                        Software Engineer with a passion for open source and cloud native technologies.
+                        Currently part of the <span class="highlight">Linux team at Microsoft</span>,
+                        contributing to the open source ecosystem with a focus on
+                        <span class="highlight">eBPF</span>, <span class="highlight">Containers</span>,
+                        and <span class="highlight">Kubernetes</span>.
+                    </p>
+                    <p>
+                        Core maintainer of <a href="https://github.com/inspektor-gadget/inspektor-gadget" target="_blank" class="inline-link">Inspektor Gadget</a>,
+                        a CNCF Sandbox project for eBPF-based data collection and system inspection on Kubernetes clusters.
+                        Contributor to <a href="https://github.com/coredns/coredns" target="_blank" class="inline-link">CoreDNS</a>
+                        and maintainer of its <code>header</code> plugin.
+                    </p>
+                </div>
+                <div class="about-tech reveal">
+                    <h3 class="subsection-title">tech_stack</h3>
+                    <div class="tech-tags">
+                        <span class="tag">Go</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">eBPF</span>
+                        <span class="tag">C</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Cilium</span>
+                        <span class="tag">CoreDNS</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">Ansible</span>
+                        <span class="tag">Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section section--alt" id="projects">
+        <div class="container">
+            <h2 class="section-title"><span class="prompt">#</span> projects</h2>
+            <div class="projects-grid">
+
+                <a href="https://github.com/inspektor-gadget/inspektor-gadget" target="_blank" class="project-card reveal">
+                    <div class="project-header">
+                        <i class="fas fa-cube project-icon"></i>
+                        <div class="project-links">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-name">Inspektor Gadget</h3>
+                    <p class="project-desc">A set of tools and framework for data collection and system inspection on Kubernetes clusters and Linux hosts using eBPF.</p>
+                    <div class="project-meta">
+                        <span class="project-lang"><span class="lang-dot lang-dot--c"></span>C</span>
+                        <span class="project-stars"><i class="fas fa-star"></i> 2.7k</span>
+                        <span class="project-forks"><i class="fas fa-code-branch"></i> 331</span>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag tag--small">CNCF</span>
+                        <span class="tag tag--small">eBPF</span>
+                        <span class="tag tag--small">K8s</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/Azure/aks-mcp" target="_blank" class="project-card reveal">
+                    <div class="project-header">
+                        <i class="fas fa-robot project-icon"></i>
+                        <div class="project-links">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-name">AKS MCP Server</h3>
+                    <p class="project-desc">A Model Context Protocol server enabling AI assistants to interact with Azure Kubernetes Service clusters.</p>
+                    <div class="project-meta">
+                        <span class="project-lang"><span class="lang-dot lang-dot--go"></span>Go</span>
+                        <span class="project-stars"><i class="fas fa-star"></i> 121</span>
+                        <span class="project-forks"><i class="fas fa-code-branch"></i> 34</span>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag tag--small">MCP</span>
+                        <span class="tag tag--small">AKS</span>
+                        <span class="tag tag--small">AI</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/inspektor-gadget/ig-mcp-server" target="_blank" class="project-card reveal">
+                    <div class="project-header">
+                        <i class="fas fa-bug project-icon"></i>
+                        <div class="project-links">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-name">IG MCP Server</h3>
+                    <p class="project-desc">Debug your Container and Kubernetes workloads with an AI interface powered by Inspektor Gadget.</p>
+                    <div class="project-meta">
+                        <span class="project-lang"><span class="lang-dot lang-dot--go"></span>Go</span>
+                        <span class="project-stars"><i class="fas fa-star"></i> 22</span>
+                        <span class="project-forks"><i class="fas fa-code-branch"></i> 2</span>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag tag--small">MCP</span>
+                        <span class="tag tag--small">Debug</span>
+                        <span class="tag tag--small">eBPF</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/mqasimsarfraz/imagesync" target="_blank" class="project-card reveal">
+                    <div class="project-header">
+                        <i class="fas fa-sync-alt project-icon"></i>
+                        <div class="project-links">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-name">imagesync</h3>
+                    <p class="project-desc">A tool to copy and sync Docker images between container registries without a Docker daemon.</p>
+                    <div class="project-meta">
+                        <span class="project-lang"><span class="lang-dot lang-dot--go"></span>Go</span>
+                        <span class="project-stars"><i class="fas fa-star"></i> 56</span>
+                        <span class="project-forks"><i class="fas fa-code-branch"></i> 2</span>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag tag--small">Docker</span>
+                        <span class="tag tag--small">OCI</span>
+                        <span class="tag tag--small">CLI</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/coredns/coredns" target="_blank" class="project-card reveal">
+                    <div class="project-header">
+                        <i class="fas fa-network-wired project-icon"></i>
+                        <div class="project-links">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-name">CoreDNS</h3>
+                    <p class="project-desc">DNS server that chains plugins. Maintainer of the <code>header</code> plugin for DNS header manipulation.</p>
+                    <div class="project-meta">
+                        <span class="project-lang"><span class="lang-dot lang-dot--go"></span>Go</span>
+                        <span class="project-stars"><i class="fas fa-star"></i> 14k</span>
+                        <span class="project-forks"><i class="fas fa-code-branch"></i> 2.4k</span>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag tag--small">CNCF</span>
+                        <span class="tag tag--small">DNS</span>
+                        <span class="tag tag--small">Plugin</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/Azure/kubectl-aks" target="_blank" class="project-card reveal">
+                    <div class="project-header">
+                        <i class="fas fa-terminal project-icon"></i>
+                        <div class="project-links">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </div>
+                    <h3 class="project-name">kubectl-aks</h3>
+                    <p class="project-desc">Azure Kubernetes Service (AKS) kubectl plugin for cluster management and debugging.</p>
+                    <div class="project-meta">
+                        <span class="project-lang"><span class="lang-dot lang-dot--go"></span>Go</span>
+                        <span class="project-stars"><i class="fas fa-star"></i> 34</span>
+                        <span class="project-forks"><i class="fas fa-code-branch"></i> 9</span>
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag tag--small">kubectl</span>
+                        <span class="tag tag--small">Azure</span>
+                        <span class="tag tag--small">CLI</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Talks Section -->
+    <section class="section" id="talks">
+        <div class="container">
+            <h2 class="section-title"><span class="prompt">#</span> talks</h2>
+            <div class="talks-grid">
+
+                <a href="https://youtu.be/awXjABDknww?si=o1PYZEwfqW-MJExu" target="_blank" class="talk-card reveal">
+                    <div class="talk-thumbnail">
+                        <img src="https://img.youtube.com/vi/awXjABDknww/mqdefault.jpg" alt="Understanding and Debugging DNS in Kubernetes Clusters" loading="lazy">
+                        <div class="play-overlay"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="talk-info">
+                        <h3 class="talk-title">Understanding and Debugging DNS in Kubernetes Clusters</h3>
+                        <p class="talk-event"><i class="fas fa-calendar"></i> Cloud Native Rejekts 2025</p>
+                    </div>
+                </a>
+
+                <a href="https://youtu.be/KQpZg_NqbZw?si=3dYhBdeoaq_u3YBZ" target="_blank" class="talk-card reveal">
+                    <div class="talk-thumbnail">
+                        <img src="https://img.youtube.com/vi/KQpZg_NqbZw/mqdefault.jpg" alt="Demystifying DNS" loading="lazy">
+                        <div class="play-overlay"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="talk-info">
+                        <h3 class="talk-title">Demystifying DNS: Understanding and Debugging Request Flows in K8s</h3>
+                        <p class="talk-event"><i class="fas fa-calendar"></i> Container Days 2024</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/live/Io6vqHitTzQ?si=a2LV3y-YtuSkK_Fk" target="_blank" class="talk-card reveal">
+                    <div class="talk-thumbnail">
+                        <img src="https://img.youtube.com/vi/Io6vqHitTzQ/mqdefault.jpg" alt="Go Go Gadget!" loading="lazy">
+                        <div class="play-overlay"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="talk-info">
+                        <h3 class="talk-title">Go Go Gadget! Inspektor Gadget and Observability</h3>
+                        <p class="talk-event"><i class="fas fa-calendar"></i> ⚡ Enlightning</p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/live/WIh5saIx12U?si=xbk7ApZNvAbfjXok" target="_blank" class="talk-card reveal">
+                    <div class="talk-thumbnail">
+                        <img src="https://img.youtube.com/vi/WIh5saIx12U/mqdefault.jpg" alt="Optimizing DevEx" loading="lazy">
+                        <div class="play-overlay"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="talk-info">
+                        <h3 class="talk-title">Optimizing DevEx with Observability in Platform Engineering</h3>
+                        <p class="talk-event"><i class="fas fa-calendar"></i> Cloud Native Islamabad</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section section--alt" id="blog">
+        <div class="container">
+            <h2 class="section-title"><span class="prompt">#</span> blog</h2>
+            <div class="blog-list">
+
+                <a href="https://qasim-sarfraz.medium.com/dns-caching-gone-wrong-a329dc00452e" target="_blank" class="blog-card reveal">
+                    <div class="blog-icon"><i class="fas fa-globe"></i></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Kubernetes DNS Caching Gone Wrong</h3>
+                        <p class="blog-excerpt">Exploring DNS caching pitfalls in Kubernetes environments and how to debug them.</p>
+                        <span class="blog-source">Medium</span>
+                    </div>
+                    <i class="fas fa-arrow-right blog-arrow"></i>
+                </a>
+
+                <a href="https://inspektor-gadget.io/blog/2025/02/writing-k9s-plugins-with-inspektor-gadget" target="_blank" class="blog-card reveal">
+                    <div class="blog-icon"><i class="fas fa-plug"></i></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Writing K9s Plugins by Leveraging Inspektor Gadget</h3>
+                        <p class="blog-excerpt">Transform your Kubernetes CLI experience with custom K9s plugins powered by Inspektor Gadget.</p>
+                        <span class="blog-source">Inspektor Gadget Blog</span>
+                    </div>
+                    <i class="fas fa-arrow-right blog-arrow"></i>
+                </a>
+
+                <a href="https://awstip.com/kubernetes-v1-20-debug-story-fdef7ba01cfe" target="_blank" class="blog-card reveal">
+                    <div class="blog-icon"><i class="fas fa-bug"></i></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Kubernetes Debug Story — How NOT to Run a Privileged Container</h3>
+                        <p class="blog-excerpt">A real-world Kubernetes debugging story about privileged containers and security implications.</p>
+                        <span class="blog-source">AWSTip</span>
+                    </div>
+                    <i class="fas fa-arrow-right blog-arrow"></i>
+                </a>
+
+                <a href="https://inspektor-gadget.io/blog/2023/02/leveraging-oci-runtime-annotations-for-kubernetes-tooling" target="_blank" class="blog-card reveal">
+                    <div class="blog-icon"><i class="fas fa-tags"></i></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Leveraging OCI Runtime Annotations for Kubernetes Tooling</h3>
+                        <p class="blog-excerpt">How OCI runtime annotations can be used to build better Kubernetes tooling and observability.</p>
+                        <span class="blog-source">Inspektor Gadget Blog</span>
+                    </div>
+                    <i class="fas fa-arrow-right blog-arrow"></i>
+                </a>
+
+                <a href="https://www.containerdays.io/blog/debugging-dns-request-flows-in-kubernetes-clusters/" target="_blank" class="blog-card reveal">
+                    <div class="blog-icon"><i class="fas fa-search"></i></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Debugging DNS Request Flows in Kubernetes Clusters</h3>
+                        <p class="blog-excerpt">A deep dive into DNS request flows in Kubernetes and tools for debugging DNS issues.</p>
+                        <span class="blog-source">Container Days</span>
+                    </div>
+                    <i class="fas fa-arrow-right blog-arrow"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <h2 class="section-title"><span class="prompt">#</span> experience</h2>
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aug 2022 — Present</div>
+                        <h3 class="timeline-role">Software Engineer</h3>
+                        <p class="timeline-company">Microsoft, Hamburg</p>
+                        <p class="timeline-desc">Part of the Linux team, contributing to the open source ecosystem. Core maintainer of CNCF Sandbox project <strong>Inspektor Gadget</strong> — an eBPF-based framework for data collection and system inspection on Kubernetes clusters and Linux hosts.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag--small">eBPF</span>
+                            <span class="tag tag--small">Go</span>
+                            <span class="tag tag--small">Kubernetes</span>
+                            <span class="tag tag--small">OSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Nov 2017 — Jun 2022</div>
+                        <h3 class="timeline-role">Full Stack Engineer</h3>
+                        <p class="timeline-company">Zeal Network SE, Hamburg</p>
+                        <p class="timeline-desc">Planned and executed migration from on-premises to cloud. Developed microservices with cloud native approach. Built reliable Kubernetes-based platform across multiple cloud providers with centralized monitoring and alerting.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag--small">Go</span>
+                            <span class="tag tag--small">Kubernetes</span>
+                            <span class="tag tag--small">AWS</span>
+                            <span class="tag tag--small">Cilium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mar 2017 — Oct 2017</div>
+                        <h3 class="timeline-role">DevOps Engineer</h3>
+                        <p class="timeline-company">INTECH Process Automation, Lahore</p>
+                        <p class="timeline-desc">Responsible for deployment, maintenance, scalability and system engineering of IoT platform solutions.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag--small">Ansible</span>
+                            <span class="tag tag--small">DC/OS</span>
+                            <span class="tag tag--small">IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Oct 2014 — Feb 2017</div>
+                        <h3 class="timeline-role">Design Engineer III</h3>
+                        <p class="timeline-company">Xgrid / PLUMgrid, Islamabad</p>
+                        <p class="timeline-desc">Senior member of PLUMgrid Cloud Solutions team. Led design and development of Docker-based and Red Hat OpenStack automated installations and upgrades. Completed 8-week training at PLUMgrid HQ, Santa Clara.</p>
+                        <div class="timeline-tags">
+                            <span class="tag tag--small">Docker</span>
+                            <span class="tag tag--small">OpenStack</span>
+                            <span class="tag tag--small">Puppet</span>
+                            <span class="tag tag--small">Ansible</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2010 — 2014</div>
+                        <h3 class="timeline-role">BSc Electrical Engineering</h3>
+                        <p class="timeline-company">University of Engineering and Technology, Lahore</p>
+                        <p class="timeline-desc">Concentration in Computers.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Playground CTA Section -->
+    <section class="section section--alt playground-cta" id="playground-cta">
+        <div class="container">
+            <div class="cta-content reveal">
+                <div class="cta-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="terminal-btn terminal-btn--red"></span>
+                            <span class="terminal-btn terminal-btn--yellow"></span>
+                            <span class="terminal-btn terminal-btn--green"></span>
+                        </div>
+                        <span class="terminal-title">playground</span>
+                    </div>
+                    <div class="terminal-body cta-terminal-body">
+                        <div class="terminal-line">
+                            <span class="prompt">$</span> <span class="cta-cmd">kubectl get skills --sort-by=level</span>
+                        </div>
+                        <pre class="cta-output">NAME          CATEGORY      LEVEL
+linux         fundamentals  ████████░░  beginner
+containers    docker        ████████░░  beginner
+kubernetes    orchestration ████████░░  beginner
+
+<span class="highlight">Ready to level up? Try the interactive playground.</span></pre>
+                    </div>
+                </div>
+                <div class="cta-text">
+                    <h2>Learn by Doing</h2>
+                    <p>Explore Linux, Containers, and Kubernetes through interactive terminal-based lessons. No setup required — everything runs right in your browser.</p>
+                    <a href="playground.html" class="cta-button">
+                        <i class="fas fa-terminal"></i> Launch Playground
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="https://github.com/mqasimsarfraz" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mqasimsarfraz" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/qasim_sarfraz" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://stackoverflow.com/users/7274380/qasim-sarfraz" target="_blank" rel="noopener" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+                    <a href="https://qasim-sarfraz.medium.com" target="_blank" rel="noopener" aria-label="Medium"><i class="fab fa-medium"></i></a>
+                </div>
+                <p class="footer-text">
+                    <span class="prompt">$</span> echo "Built with <i class="fas fa-heart" style="color: var(--accent-red);"></i> and a terminal"
+                </p>
+                <p class="footer-copyright">&copy; 2025 Qasim Sarfraz</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

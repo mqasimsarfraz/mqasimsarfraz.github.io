@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground — Learn Linux, Containers & Kubernetes</title>
+    <meta name="description" content="Interactive terminal-based playground to learn Linux, Docker, and Kubernetes fundamentals.">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="scanline-overlay"></div>
+
+    <div class="playground-page">
+        <!-- Playground Navigation -->
+        <nav class="playground-nav">
+            <a href="index.html" class="playground-back">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+            <div class="nav-logo">
+                <span class="prompt">~$</span> <span class="nav-name">playground</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <div class="playground-main">
+            <!-- Sidebar Overlay (Mobile) -->
+            <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+            <!-- Sidebar -->
+            <aside class="playground-sidebar" id="playground-sidebar">
+                <div class="sidebar-header">
+                    <h2><i class="fas fa-graduation-cap"></i> Lessons</h2>
+                    <p>Choose a topic to get started</p>
+                </div>
+
+                <!-- Linux Lessons -->
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">
+                        <i class="fab fa-linux"></i> Linux Basics
+                    </div>
+                    <button class="lesson-item" data-lesson="linux-navigation">
+                        <span class="lesson-icon">📂</span>
+                        <span>File System Navigation</span>
+                        <span class="lesson-status" id="status-linux-navigation"></span>
+                    </button>
+                    <button class="lesson-item" data-lesson="linux-files">
+                        <span class="lesson-icon">📄</span>
+                        <span>Working with Files</span>
+                        <span class="lesson-status" id="status-linux-files"></span>
+                    </button>
+                    <button class="lesson-item" data-lesson="linux-text">
+                        <span class="lesson-icon">🔍</span>
+                        <span>Text Processing</span>
+                        <span class="lesson-status" id="status-linux-text"></span>
+                    </button>
+                    <button class="lesson-item" data-lesson="linux-permissions">
+                        <span class="lesson-icon">🔐</span>
+                        <span>File Permissions</span>
+                        <span class="lesson-status" id="status-linux-permissions"></span>
+                    </button>
+                </div>
+
+                <!-- Container Lessons -->
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">
+                        <i class="fab fa-docker"></i> Containers
+                    </div>
+                    <button class="lesson-item" data-lesson="docker-basics">
+                        <span class="lesson-icon">🐳</span>
+                        <span>Container Basics</span>
+                        <span class="lesson-status" id="status-docker-basics"></span>
+                    </button>
+                    <button class="lesson-item" data-lesson="docker-images">
+                        <span class="lesson-icon">📦</span>
+                        <span>Images & Building</span>
+                        <span class="lesson-status" id="status-docker-images"></span>
+                    </button>
+                    <button class="lesson-item" data-lesson="docker-networking">
+                        <span class="lesson-icon">🌐</span>
+                        <span>Container Networking</span>
+                        <span class="lesson-status" id="status-docker-networking"></span>
+                    </button>
+                    <button class="lesson-item" data-lesson="docker-volumes">
+                        <span class="lesson-icon">💾</span>
+                        <span>Volumes & Storage</span>
+                        <span class="lesson-status" id="status-docker-volumes"></span>
+                    </button>
+                </div>
+
+                <!-- Kubernetes Lessons -->
+                <div class="sidebar-section">
+                    <div class="sidebar-section-title">
+                        <i class="fas fa-dharmachakra"></i> Kubernetes
+                    </div>
+                    <button class="lesson-item" data-lesson="k8s-basics">
+                        <span class="lesson-icon">☸️</span>
+                        <span>Cluster Basics</span>
+                        <span class="lesson-status" id="status-k8s-basics"></span>
+                    </button>
+                    <button class="lesson-item" data-lesson="k8s-pods">
+                        <span class="lesson-icon">🫛</span>
+                        <span>Pods & Deployments</span>
+                        <span class="lesson-status" id="status-k8s-pods"></span>
+                    </button>
+                    <button class="lesson-item" data-lesson="k8s-services">
+                        <span class="lesson-icon">🔗</span>
+                        <span>Services & Networking</span>
+                        <span class="lesson-status" id="status-k8s-services"></span>
+                    </button>
+                    <button class="lesson-item" data-lesson="k8s-debugging">
+                        <span class="lesson-icon">🔧</span>
+                        <span>Debugging Workloads</span>
+                        <span class="lesson-status" id="status-k8s-debugging"></span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="playground-content" id="playground-content">
+                <!-- Welcome Screen (shown when no lesson selected) -->
+                <div class="welcome-screen" id="welcome-screen">
+                    <h2>> Welcome to the Playground</h2>
+                    <p>Interactive terminal-based lessons to learn Linux, Containers, and Kubernetes. Pick a category to start learning!</p>
+                    <div class="welcome-categories">
+                        <div class="welcome-category" data-category="linux">
+                            <i class="fab fa-linux"></i>
+                            <h3>Linux</h3>
+                            <p>File system, commands, permissions</p>
+                        </div>
+                        <div class="welcome-category" data-category="docker">
+                            <i class="fab fa-docker"></i>
+                            <h3>Containers</h3>
+                            <p>Docker, images, networking</p>
+                        </div>
+                        <div class="welcome-category" data-category="k8s">
+                            <i class="fas fa-dharmachakra"></i>
+                            <h3>Kubernetes</h3>
+                            <p>Pods, services, debugging</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson View (hidden initially) -->
+                <div id="lesson-view" style="display:none; flex:1; flex-direction:column; overflow:hidden;">
+                    <!-- Lesson Bar -->
+                    <div class="playground-lesson-bar">
+                        <div class="lesson-info">
+                            <div class="lesson-title-bar" id="lesson-title"></div>
+                            <div class="lesson-progress-text" id="lesson-step-text">Step 0 / 0</div>
+                        </div>
+                        <div class="lesson-progress-bar">
+                            <div class="lesson-progress-fill" id="lesson-progress" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Terminal -->
+                    <div class="playground-terminal-wrapper">
+                        <div class="playground-terminal" id="terminal-output"></div>
+                        <div class="terminal-input-line" style="padding: 8px 16px; background: var(--bg-terminal); border-top: 1px solid var(--border-color);">
+                            <span class="prompt" id="terminal-prompt">learner@playground:~$</span>
+                            <input type="text" class="terminal-input" id="terminal-input" placeholder="Type a command..." autocomplete="off" spellcheck="false" autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/terminal.js"></script>
+    <script src="js/lessons.js"></script>
+</body>
+</html>

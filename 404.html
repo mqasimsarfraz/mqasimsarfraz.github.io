@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Fira Code', monospace;
+            background: #0a0e17;
+            color: #c8d6e5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .container { max-width: 500px; padding: 24px; }
+        .code { font-size: 6rem; font-weight: 700; color: #00ff41; text-shadow: 0 0 30px rgba(0, 255, 65, 0.3); }
+        .message { font-size: 1.2rem; color: #8892a4; margin: 16px 0 32px; }
+        .terminal {
+            background: #0c1018;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+        .prompt { color: #00ff41; }
+        .output { color: #ff5f56; margin-top: 8px; }
+        a {
+            color: #00d4ff;
+            text-decoration: none;
+            border: 1px solid #00d4ff;
+            padding: 10px 24px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        a:hover {
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="code">404</div>
+        <p class="message">Page not found</p>
+        <div class="terminal">
+            <div><span class="prompt">$</span> curl -I this-page</div>
+            <div class="output">HTTP/1.1 404 Not Found</div>
+            <div class="output">X-Suggestion: Try the homepage instead</div>
+        </div>
+        <a href="/">~$ cd /home</a>
+    </div>
+</body>
+</html>
