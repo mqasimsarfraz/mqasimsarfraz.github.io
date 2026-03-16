@@ -1,0 +1,175 @@
+name: Add Content
+
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Type of content to add'
+        required: true
+        type: choice
+        options:
+          - youtube
+          - blog
+          - link
+      url:
+        description: 'URL (YouTube video URL, blog post URL, or website URL)'
+        required: true
+        type: string
+      title:
+        description: 'Title (required for youtube and blog)'
+        required: false
+        type: string
+      event:
+        description: 'Event name (for youtube, e.g. "KubeCon 2025")'
+        required: false
+        type: string
+      excerpt:
+        description: 'Short description/excerpt (for blog)'
+        required: false
+        type: string
+      source:
+        description: 'Source name (for blog, e.g. "Medium", "Dev.to")'
+        required: false
+        type: string
+      icon:
+        description: 'Font Awesome icon class (for blog e.g. "fa-globe", for link e.g. "fab fa-youtube")'
+        required: false
+        type: string
+      label:
+        description: 'Aria-label for the link (for link type, e.g. "YouTube")'
+        required: false
+        type: string
+
+jobs:
+  add-content:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add content to index.html
+        env:
+          CONTENT_TYPE: ${{ github.event.inputs.type }}
+          INPUT_URL: ${{ github.event.inputs.url }}
+          INPUT_TITLE: ${{ github.event.inputs.title }}
+          INPUT_EVENT: ${{ github.event.inputs.event }}
+          INPUT_EXCERPT: ${{ github.event.inputs.excerpt }}
+          INPUT_SOURCE: ${{ github.event.inputs.source }}
+          INPUT_ICON: ${{ github.event.inputs.icon }}
+          INPUT_LABEL: ${{ github.event.inputs.label }}
+        run: |
+          python3 << 'PYEOF'
+          import os
+          import re
+          import sys
+
+          content_type = os.environ.get('CONTENT_TYPE', '').strip()
+          url          = os.environ.get('INPUT_URL', '').strip()
+          title        = os.environ.get('INPUT_TITLE', '').strip()
+          event        = os.environ.get('INPUT_EVENT', '').strip()
+          excerpt      = os.environ.get('INPUT_EXCERPT', '').strip()
+          source       = os.environ.get('INPUT_SOURCE', '').strip()
+          icon         = os.environ.get('INPUT_ICON', '').strip()
+          label        = os.environ.get('INPUT_LABEL', '').strip()
+
+          with open('index.html', 'r') as f:
+              html = f.read()
+
+          def extract_youtube_id(url):
+              for pattern in [
+                  r'youtu\.be/([A-Za-z0-9_-]+)',
+                  r'youtube\.com/watch\?v=([A-Za-z0-9_-]+)',
+                  r'youtube\.com/live/([A-Za-z0-9_-]+)',
+              ]:
+                  m = re.search(pattern, url)
+                  if m:
+                      return m.group(1)
+              return None
+
+          if content_type == 'youtube':
+              if not title:
+                  print('Error: title is required for type=youtube', file=sys.stderr)
+                  sys.exit(1)
+              video_id = extract_youtube_id(url)
+              if not video_id:
+                  print('Error: could not extract a video ID from the YouTube URL. '
+                        'Supported formats: youtu.be/<id>, youtube.com/watch?v=<id>, youtube.com/live/<id>',
+                        file=sys.stderr)
+                  sys.exit(1)
+              thumbnail  = f'https://img.youtube.com/vi/{video_id}/mqdefault.jpg'
+              event_text = event if event else 'Talk'
+              card = (
+                  '\n'
+                  f'                <a href="{url}" target="_blank" class="talk-card reveal">\n'
+                  f'                    <div class="talk-thumbnail">\n'
+                  f'                        <img src="{thumbnail}" alt="{title}" loading="lazy">\n'
+                  f'                        <div class="play-overlay"><i class="fas fa-play"></i></div>\n'
+                  f'                    </div>\n'
+                  f'                    <div class="talk-info">\n'
+                  f'                        <h3 class="talk-title">{title}</h3>\n'
+                  f'                        <p class="talk-event"><i class="fas fa-calendar"></i> {event_text}</p>\n'
+                  f'                    </div>\n'
+                  f'                </a>\n'
+              )
+              marker = '<!-- talks:start -->'
+              if marker not in html:
+                  print('Error: could not find <!-- talks:start --> comment in index.html', file=sys.stderr)
+                  sys.exit(1)
+              html = html.replace(marker, marker + card, 1)
+
+          elif content_type == 'blog':
+              if not title:
+                  print('Error: title is required for type=blog', file=sys.stderr)
+                  sys.exit(1)
+              icon_class   = icon if icon else 'fa-globe'
+              excerpt_text = excerpt if excerpt else ''
+              source_text  = source if source else ''
+              card = (
+                  '\n'
+                  f'                <a href="{url}" target="_blank" class="blog-card reveal">\n'
+                  f'                    <div class="blog-icon"><i class="fas {icon_class}"></i></div>\n'
+                  f'                    <div class="blog-content">\n'
+                  f'                        <h3 class="blog-title">{title}</h3>\n'
+                  f'                        <p class="blog-excerpt">{excerpt_text}</p>\n'
+                  f'                        <span class="blog-source">{source_text}</span>\n'
+                  f'                    </div>\n'
+                  f'                    <i class="fas fa-arrow-right blog-arrow"></i>\n'
+                  f'                </a>\n'
+              )
+              marker = '<!-- blog:start -->'
+              if marker not in html:
+                  print('Error: could not find <!-- blog:start --> comment in index.html', file=sys.stderr)
+                  sys.exit(1)
+              html = html.replace(marker, marker + card, 1)
+
+          elif content_type == 'link':
+              icon_class = icon if icon else 'fas fa-link'
+              aria_label = label if label else url
+              link_html  = f'                <a href="{url}" target="_blank" rel="noopener" aria-label="{aria_label}"><i class="{icon_class}"></i></a>\n'
+              # Insert the new link just before the <!-- hero-social:end --> comment
+              marker = '<!-- hero-social:end -->'
+              if marker not in html:
+                  print('Error: could not find <!-- hero-social:end --> comment in index.html', file=sys.stderr)
+                  sys.exit(1)
+              html = html.replace(marker, link_html + '                ' + marker, 1)
+
+          else:
+              print(f'Error: unknown type "{content_type}"', file=sys.stderr)
+              sys.exit(1)
+
+          with open('index.html', 'w') as f:
+              f.write(html)
+
+          print(f'Successfully added {content_type}: {url}')
+          PYEOF
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && echo "Warning: no changes detected after script ran — the content may already exist." && exit 0
+          git commit -m "Add ${{ github.event.inputs.type }}: ${{ github.event.inputs.title || github.event.inputs.url }}"
+          git push
